@@ -7,12 +7,12 @@ TODO: Document your timezone operations:
 - Include at least one example showing a datetime before and after conversion
 - Explain why UTC is recommended as the base timezone for storing temporal data
 
-Original timezone:UTC 
-Example UTC time: 2023-03-12 10:00:00+00:00
-Converted timezone: US/Eastern
-Example Converted time: 2023-03-12 06:00:00-04:00
-Localization method: Used tz_localize('UTC') to set timezone to UTC.
+Original time zone: The original time zone of the Healthcare Time Series Dataset was in UTC  
+Here is an example of the original time zone timestamp:  2023-03-12 10:00:00+00:00
+Converted time zone: The converted time zone was in US eastern time -  US/Eastern
+Here is an example of the converted time zone timestamp in the dataset:2023-03-12 06:00:00-04:00
+To localize the dataset, a function was used. The function tz_localize('UTC') was used to localize the time zone to 'UTC.
 
-Issues encountered in DST Handling: None, as UTC avoids DST ambiguity issues.
+Issues encountered in DST Handling: There were minimal issues in handling daylight saving time transitions because there are little to no ambiguity issues when using UTC. Because there are no issues with day light savings, UTC is typically preferred as a basic time zone prior to localization or conversion. This is especially helpful when analyzing or handling temporal data as this type of data is used to identify trends and patterns. Challenges with day light savings may influence potential trends and patterns, especially when looking at weather trends or seasonal trends. For this dataset, it may be related to patient temperatures.
 
-UTC is the recommended base timezone for storing temporal data because it avoids complications with daylight savings.
+For this reason, UTC is the recommended base time zone for storing temporal data.
