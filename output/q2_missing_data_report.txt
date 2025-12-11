@@ -1,0 +1,66 @@
+
+TODO: Document your missing data handling:
+- How many missing values did you find?
+- What percentage of data was missing?
+- Which method did you use to fill missing values?
+- Why did you choose that method?
+- What are the pros/cons of your approach?
+- Include examples showing missing data patterns
+
+
+Missing patterns:
+Missing by month:
+date
+1      0
+2     27
+3     30
+4     29
+5     30
+6     29
+7     30
+8     30
+9     29
+10    30
+11    29
+12    30
+Name: temperature, dtype: int64
+
+Missing by day of week:
+date
+0    46
+1    45
+2    47
+3    46
+4    46
+5    47
+6    46
+Name: temperature, dtype: int64
+The dataset analyzed was the Healthcare Time Series dataset, which contains 18250 patient records over a one-year period. While analyzing the dataset, 323 (96.417%) missing values were identified in patient temperature after resampling monthly patient temperatures to daily frequency. To handle this missing data, the forward-fill and backward-fill approaches were used. These methods were chosen due to the nature of the dataset, which is time series data. There was also a high percentage of missing patient temperature data when resampled, which is why the missing values were not dropped. Filling these missing values with NaNs would influence the next steps of the time series analysis. Both methods were used to ensure that no missing values were left unfilled, as this could influence the next steps of the time series analysis. Linear and time-series interpolation methods were also used to fill missing values. These methods may be more appropriate for filling in missing values as they account for the trends in the data and are helpful for continuous data. The pros of these filling mehtods are that the interpolation methods are well-adjusted and aligned to time series data, however the filling of missing data (especially with a high percentage of missing data) may cause bias in the sampleand influence the results of the analusis as well as following models.
+
+Example of missing data before and after imputation:
+
+Before imputation:date
+2023-01-31    98.777
+2023-02-01       NaN
+2023-02-02       NaN
+2023-02-03       NaN
+2023-02-04       NaN
+2023-02-05       NaN
+2023-02-06       NaN
+2023-02-07       NaN
+2023-02-08       NaN
+2023-02-09       NaN
+Freq: D, Name: temperature, dtype: float64
+
+After imputation (time series interpolation method): date
+2023-01-31    98.777000
+2023-02-01    98.785011
+2023-02-02    98.793021
+2023-02-03    98.801031
+2023-02-04    98.809041
+2023-02-05    98.817052
+2023-02-06    98.825062
+2023-02-07    98.833072
+2023-02-08    98.841082
+2023-02-09    98.849092
+Freq: D, Name: temperature, dtype: float64

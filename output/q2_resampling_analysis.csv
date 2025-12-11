@@ -1,0 +1,4 @@
+frequency,data_range,row count,mean_temperature,std_temperature
+Daily,"((datetime.date(2023, 1, 1), datetime.date(2023, 12, 31)))",365,98.66053844891451,0.3603222742708693
+Weekly,"((datetime.date(2023, 1, 1), datetime.date(2023, 12, 31)))",53,98.66065693125925,0.35801386457883094
+Monthly,"((datetime.date(2023, 1, 31), datetime.date(2023, 12, 31)))",12,98.66279408036387,0.3695031939709613
